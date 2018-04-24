@@ -1,0 +1,65 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <!-- <ion-navbar>
+    <ion-title>Ingresar</ion-title>
+  </ion-navbar> -->
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="container" [ngClass]="{'active': register }">
+    <div class="card"></div>
+    <div class="card">
+      <h1 class="title">Ingresar</h1>
+      <form>
+        <div class="input-container">
+          <input type="#{type}" id="#{label}" required="required"/>
+          <label for="#{label}">Usuario</label>
+          <div class="bar"></div>
+        </div>
+        <div class="input-container">
+          <input type="#{type}" id="#{label}" required="required"/>
+          <label for="#{label}">Contraseña</label>
+          <div class="bar"></div>
+        </div>
+        <div class="button-container">
+          <button><span>Iniciar!</span></button>
+        </div>
+        <!-- <div class="footer"><a href="#">Olvidó su contraseña?</a></div> -->
+      </form>
+    </div>
+    <div class="card alt">
+      <div class="toggle" (click)="registrar()" ></div>
+      <h1 class="title">Registrarse
+        <div class="close" (click)="noRegistrarse()"></div>
+      </h1>
+      <form>
+        <div class="input-container">
+          <input type="#{type}" id="#{label}" required="required"/>
+          <label for="#{label}">Usuario</label>
+          <div class="bar"></div>
+        </div>
+        <div class="input-container">
+          <input type="#{type}" id="#{label}" required="required"/>
+          <label for="#{label}">Contraseña</label>
+          <div class="bar"></div>
+        </div>
+        <div class="input-container">
+          <input type="#{type}" id="#{label}" required="required"/>
+          <label for="#{label}">Repetir Contraseña</label>
+          <div class="bar"></div>
+        </div>
+        <div class="button-container">
+          <button><span>Siguiente!</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>
