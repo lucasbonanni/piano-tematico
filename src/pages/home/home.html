@@ -1,63 +1,87 @@
-  <ion-header>
-    <ion-navbar>
-      <ion-title>
-        Ionic Blank
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Botonera de sonidos
+    </ion-title>
+  </ion-navbar>
+</ion-header>
 
-  <ion-content padding>
-    <ion-row>
-      <ion-col col-12 >
-        <button ion-button full (click)="chargeCredit()">Grabar Secuencia</button>
+<ion-content padding>
+  <ion-row>
+    <ion-col col-12>
+      <!-- <button ion-button full (click)="garbarSecuencia()">Grabar Secuencia</button> -->
+    </ion-col>
+  </ion-row>
+  <ion-card>
+    <!-- <ion-row justify-content-around>
+      <button ion-button color="secondary" outline>menu</button>
+    </ion-row> -->
+    <ion-row justify-content-around>
+      <ion-col col-4>
+        <button ion-button icon-only>
+          <img src="assets/imgs/buttons/b23e98_mario_bros.png">
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button icon-only>
+          <img src="assets/imgs/buttons/b23e98_mario_bros.png">
+        </button>
       </ion-col>
     </ion-row>
-
-    <ion-card>
-      <!-- <ion-card-header> -->
-         <!-- <button ion-button block (click)="chargeCredit()">menu</button> -->
-         <ion-row justify-content-around>
-            <button ion-button color="secondary" outline>menu</button>
-         </ion-row>
-         
-      <!-- </ion-card-header> -->
-      <!-- <ion-card-content> -->
-      <ion-row justify-content-around>
-        <ion-col col-4>
-          <button ion-button icon-only>
-            <img src="assets/imgs/buttons/b23e98_mario_bros.png">
-          </button>
-        </ion-col>
-        <ion-col col-4>
-          <button ion-button icon-only>
-            <img src="assets/imgs/buttons/b23e98_mario_bros.png">
-          </button>
-        </ion-col>
-      </ion-row>
-      <ion-row justify-content-around>
-        <ion-col col-4>
-          <button ion-button icon-only>
-            <img src="assets/imgs/buttons/b23e98_mario_bros.png">
-          </button>
-        </ion-col>
-        <ion-col col-4>
-          <button ion-button icon-only>
-            <img src="assets/imgs/buttons/b23e98_mario_bros.png">
-          </button>
-        </ion-col>
-      </ion-row>
-      <ion-row justify-content-around>
-        <ion-col col-4>
-          <button ion-button icon-only center>
-            <img src="assets/imgs/buttons/b23e98_mario_bros.png">
-          </button>
-        </ion-col>
-      </ion-row>
-      <!-- </ion-card-content> -->
-    </ion-card>
-    <ion-row>
-      <ion-col col-12>
-        <button ion-button full (click)="chargeCredit()">Repetir secuencia</button>
+    <ion-row justify-content-around>
+      <ion-col col-4>
+        <button ion-button icon-only>
+          <img src="assets/imgs/buttons/b23e98_mario_bros.png">
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button icon-only>
+          <img src="assets/imgs/buttons/b23e98_mario_bros.png">
+        </button>
       </ion-col>
     </ion-row>
-  </ion-content>
+    <ion-row justify-content-around>
+      <ion-col col-4>
+        <button ion-button icon-only center>
+          <img src="assets/imgs/buttons/b23e98_mario_bros.png">
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-col col-3>
+        <!-- <button ion-button full (click)="reproducirSecuencia()">Repetir secuencia</button> -->
+        <ion-fab>
+          <button ion-fab color="danger">
+            <ion-icon name="recording"></ion-icon>
+          </button>
+        </ion-fab>
+      </ion-col>
+      <ion-col col-3>
+        <ion-fab>
+          <button ion-fab color="primary">
+            <ion-icon name="play"></ion-icon>
+          </button>
+        </ion-fab>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-fab right bottom>
+    <button ion-fab color="secondary">
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </button>
+    <ion-fab-list side="left">
+      <button ion-fab color="danger">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </button>
+      <button ion-fab color="primary">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </button>
+      <button ion-fab color="secondary">
+        <ion-icon name="logo-vimeo"></ion-icon>
+      </button>
+      <button ion-fab>
+        <ion-icon name="logo-googleplus"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
