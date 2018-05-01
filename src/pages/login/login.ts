@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 /**
@@ -38,8 +38,7 @@ export class LoginPage {
     this.showLoading()
     this.auth.login(this.registerCredentials).subscribe(allowed => {
       if (allowed) {        
-        // this.nav.setRoot(HomePage);
-        this.nav.push('HomePage');
+        this.nav.setRoot('HomePage');
       } else {
         this.showError("No tiene acceso");
       }

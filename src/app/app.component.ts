@@ -7,6 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   templateUrl: 'app.html'
 })
 export class MyApp {
+  splash: boolean = true;
   rootPage:any = 'LoginPage';
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
@@ -15,6 +16,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      setTimeout(() => this.splash = false, 4000);
     });
   }
 }
