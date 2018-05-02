@@ -21,4 +21,11 @@ page-home {
         -webkit-transition: .3s ease;
         transition: .3s ease;
     }
+
+    .fab.fab-md:hover{
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+    }
+
 }
