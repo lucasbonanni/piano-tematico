@@ -18,32 +18,32 @@
     </ion-row> -->
     <ion-row justify-content-around>
       <ion-col col-4>
-        <button ion-button icon-only>
-          <img src="assets/imgs/buttons/b23e98_mario_bros.png">
+        <button ion-button icon-only #Button1>
+          <img src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton1 (click)="playButton1Sound()">
         </button>
       </ion-col>
       <ion-col col-4>
-        <button ion-button icon-only>
-          <img src="assets/imgs/buttons/b23e98_mario_bros.png">
-        </button>
-      </ion-col>
-    </ion-row>
-    <ion-row justify-content-around>
-      <ion-col col-4>
-        <button ion-button icon-only>
-          <img src="assets/imgs/buttons/b23e98_mario_bros.png">
-        </button>
-      </ion-col>
-      <ion-col col-4>
-        <button ion-button icon-only>
-          <img src="assets/imgs/buttons/b23e98_mario_bros.png">
+        <button ion-button icon-only #Button2>
+          <img src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton2 (click)="playButton2Sound()">
         </button>
       </ion-col>
     </ion-row>
     <ion-row justify-content-around>
       <ion-col col-4>
-        <button ion-button icon-only center>
-          <img src="assets/imgs/buttons/b23e98_mario_bros.png">
+        <button ion-button icon-only #Button3>
+          <img src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton3 (click)="playButton3Sound()">
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button icon-only #Button4>
+          <img src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton4>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-around>
+      <ion-col col-4>
+        <button ion-button icon-only center #Button5>
+          <img src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton5>
         </button>
       </ion-col>
     </ion-row>
@@ -71,7 +71,7 @@
     </button>
     <ion-fab-list side="left">
       <button ion-fab color="danger">
-        <ion-icon name="logo-facebook"></ion-icon>
+          <img src="assets/imgs/buttons/MK-Finish-Him.png">
       </button>
       <button ion-fab color="primary">
         <ion-icon name="logo-twitter"></ion-icon>

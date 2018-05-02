@@ -15,6 +15,7 @@ export class SoundProvider {
   private recordedSecuence: Array<string>;
 
   constructor(private nativeAudio: NativeAudio) {
+    
     this.initializeStarWarsSounds();
     this.initializeMortalKombatSounds();
     this.initializeSecuence();
@@ -33,6 +34,7 @@ export class SoundProvider {
     this.starWarsSounds.push('SW-DV-YMM');
     this.starWarsSounds.push('SW-D');
     this.starWarsSounds.push('SW-Stormtrooper-RF');
+    this.starWarsSounds.push('SW-Lightsaver');
     this.preloadSounds(this.starWarsSounds);
   }
 
@@ -43,7 +45,8 @@ export class SoundProvider {
   private preloadSounds(soundsNames: Array<string>){
     for (let index = 0; index < soundsNames.length; index++) {
       const path = 'assets/sounds/' + soundsNames[index] + '.mp3'
-      this.nativeAudio.preloadSimple(soundsNames[index],path);
+      this.nativeAudio.preloadSimple(soundsNames[index],path).catch(reason => alert(reason));
+      this.nativeAudio.setVolumeForComplexAsset(soundsNames[index],1.0);
     }
   }
 
@@ -52,7 +55,7 @@ export class SoundProvider {
   }
 
   getmortalKombatSounds(){
-    return this.starWarsSounds;
+    return this.mortalKombatSounds;
   }
 
   playrecordedSecuence(){
@@ -70,7 +73,7 @@ export class SoundProvider {
   }
 
   playSound(soundName:string){
-    this.nativeAudio.play(soundName);
+    this.nativeAudio.play(soundName).catch(reason => alert(reason));
   }
 
 }
