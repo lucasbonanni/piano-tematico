@@ -1,129 +1,62 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Botonera de sonidos
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content>
   <ion-list>
     <button ion-item #Button1 (click)="playButton1Sound()">
-      <img item-start src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton1> un item
+      <img item-start src="assets/imgs/buttons/CS3.png" #imageButton1> {{buttonText1}}
     </button>
-    <button ion-item #Button2>
-      <img item-start src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton2> otro item
+    <button ion-item #Button2 (click)="playButton2Sound()">
+      <img item-start src="assets/imgs/buttons/CS3.png" #imageButton2> {{buttonText2}}
     </button>
-    <button ion-item #Button3>
-      <img item-start src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton3> otro item
+    <button ion-item #Button3 (click)="playButton3Sound()">
+      <img item-start src="assets/imgs/buttons/CS3.png" #imageButton3> {{buttonText3}}
     </button>
-    <button ion-item #Button4>
-      <img item-start src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton4> otro item
+    <button ion-item #Button4 (click)="playButton4Sound()">
+      <img item-start src="assets/imgs/buttons/CS3.png" #imageButton4> {{buttonText4}}
     </button>
-    <button ion-item #Button5>
-      <img item-start src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton5> otro item
+    <button ion-item #Button5 (click)="playButton5Sound()">
+      <img item-start src="assets/imgs/buttons/CS3.png" #imageButton5> {{buttonText5}}
     </button>
   </ion-list>
   <div class="button-background">
     <ion-row>
       <ion-col col-12>
-        <!-- <button ion-button full (click)="garbarSecuencia()">Grabar Secuencia</button> -->
       </ion-col>
     </ion-row>
-    <!-- <ion-card> -->
-
-    <!-- <ion-row justify-content-around>
-      <button ion-button color="secondary" outline>menu</button>
-    </ion-row> -->
-    <!-- <ion-row justify-content-around>
-      <ion-col col-4>
-        <button ion-button icon-only #Button1>
-          <img src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton1 (click)="playButton1Sound()">
-        </button>
-      </ion-col>
-      <ion-col col-4>
-        <button ion-button icon-only #Button2>
-          <img src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton2 (click)="playButton2Sound()">
-        </button>
-      </ion-col>
-    </ion-row>
-    <ion-row justify-content-around>
-      <ion-col col-4>
-        <button ion-button icon-only #Button3>
-          <img src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton3 (click)="playButton3Sound()">
-        </button>
-      </ion-col>
-      <ion-col col-4>
-        <button ion-button icon-only #Button4>
-          <img src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton4>
-        </button>
-      </ion-col>
-    </ion-row>
-    <ion-row justify-content-around>
-      <ion-col col-4>
-        <button ion-button icon-only center #Button5>
-          <img src="assets/imgs/buttons/b23e98_mario_bros.png" #imageButton5>
-        </button>
-      </ion-col>
-    </ion-row> -->
-
     <ion-row justify-content-center>
       <ion-col col-3>
-        <!-- <button ion-button full (click)="reproducirSecuencia()">Repetir secuencia</button> -->
         <ion-fab>
-          <button ion-fab color="danger">
-            <ion-icon name="recording"></ion-icon>
+          <button ion-fab color="danger"(click)="startRecording()">
+            <ion-icon name="recording" ></ion-icon>
           </button>
         </ion-fab>
       </ion-col>
       <ion-col col-3>
         <ion-fab>
-          <button ion-fab color="primary">
-            <ion-icon name="play"></ion-icon>
+          <button ion-fab color="primary" (click)="playRecording()">
+            <ion-icon name="play" ></ion-icon>
           </button>
-        </ion-fab>
-      </ion-col>
-      <ion-col col-3>
-        <ion-fab>
-          <button ion-fab color="secondary">
-            <ion-icon name="arrow-dropup"></ion-icon>
-          </button>
-          <ion-fab-list side="top">
-            <button ion-fab color="danger">
-              <img src="assets/imgs/buttons/MK-Finish-Him.png">
-            </button>
-            <button ion-fab color="primary">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </button>
-            <button ion-fab color="secondary">
-              <ion-icon name="logo-vimeo"></ion-icon>
-            </button>
-            <button ion-fab>
-              <ion-icon name="logo-googleplus"></ion-icon>
-            </button>
-          </ion-fab-list>
         </ion-fab>
       </ion-col>
     </ion-row>
   </div>
-  <!-- </ion-card> -->
-  <!-- <ion-fab right bottom>
-    <button ion-fab color="secondary">
-      <ion-icon name="arrow-dropleft"></ion-icon>
+  <ion-fab right bottom>
+    <button ion-fab color="danger">
+      <ion-icon name="logo-buffer"></ion-icon>
     </button>
-    <ion-fab-list side="left">
-      <button ion-fab color="danger">
-        <img src="assets/imgs/buttons/MK-Finish-Him.png">
-      </button>
-      <button ion-fab color="primary">
-        <ion-icon name="logo-twitter"></ion-icon>
-      </button>
-      <button ion-fab color="secondary">
-        <ion-icon name="logo-vimeo"></ion-icon>
-      </button>
+    <ion-fab-list side="top">
       <button ion-fab>
-        <ion-icon name="logo-googleplus"></ion-icon>
+        <ion-icon name="exit"></ion-icon>
       </button>
     </ion-fab-list>
-  </ion-fab> -->
+    <ion-fab-list side="left">
+      <button ion-fab color="danger" (click)="getCounterStrike()">
+        <img src="assets/imgs/buttons/CS3.png">
+      </button>
+      <button ion-fab color="primary" (click)="getMarioBros()">
+        <img src="assets/imgs/buttons/mario-logo.png">
+      </button>
+      <button ion-fab color="secondary" (click)="getMortalKombat()">
+        <img src="assets/imgs/buttons/MK.png">
+      </button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>

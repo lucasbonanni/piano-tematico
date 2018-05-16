@@ -39,8 +39,8 @@ page-home {
   .button-background{
       background-image: url('../assets/imgs/video-games.jpg');
       background-position: center;
-      max-height: 160px;
-        height: 160px;
+      max-height: 216px;
+        height: 216px;
         max-width: 100%;
         width: 360px;
   }
@@ -89,9 +89,9 @@ page-home {
   .fab.fab-md{
       margin-top: 30px;
   }
-  .fab.fab-md:hover {
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
-  }
+  // .fab.fab-md:hover {
+  //   width: 70px;
+  //   height: 70px;
+  //   line-height: 70px;
+  // }
 }
