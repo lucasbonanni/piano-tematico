@@ -11,13 +11,14 @@ import { Platform } from 'ionic-angular';
 @Injectable()
 export class SoundProvider {
 
-  private starWarsSounds: Array<string>;
+  private counterStrikeSounds: Array<string>;
+  private marioBrossSounds: Array<string>;
   private mortalKombatSounds: Array<string>;
   private recordedSecuence: Array<string>;
 
   constructor(private nativeAudio: NativeAudio, private platform: Platform) {
     if(this.platform.is('mobile')){
-      this.initializeStarWarsSounds();
+      this.initializeMarioBrossSounds();
       this.initializeMortalKombatSounds();
       this.initializeSecuence();
     }
@@ -25,19 +26,33 @@ export class SoundProvider {
 
   private initializeMortalKombatSounds() {
     this.mortalKombatSounds = new Array<string>();
-    this.mortalKombatSounds.push('MK-You-Choose');
+    this.mortalKombatSounds.push('MK_Fight');
     this.mortalKombatSounds.push('MK-Finish-Him');
+    this.mortalKombatSounds.push('MK_Kahn_Laughing');
+    this.mortalKombatSounds.push('MK_Kahn_Prepare_To_Die');
     this.mortalKombatSounds.push('MK-Scorpion');
     this.preloadSounds(this.mortalKombatSounds);
   }
 
-  private initializeStarWarsSounds() {
-    this.starWarsSounds = new Array<string>();
-    this.starWarsSounds.push('SW-DV-YMM');
-    this.starWarsSounds.push('SW-D');
-    this.starWarsSounds.push('SW-Stormtrooper-RF');
-    this.starWarsSounds.push('SW-Lightsaver');
-    this.preloadSounds(this.starWarsSounds);
+  private initializeMarioBrossSounds() {
+    this.marioBrossSounds = new Array<string>();
+    this.marioBrossSounds.push('SMB3_Coin');
+    this.marioBrossSounds.push('SMB3_Die');
+    this.marioBrossSounds.push('SMB3_Jump');
+    this.marioBrossSounds.push('SMB3_Power_Down');
+    this.marioBrossSounds.push('SMB3_Power_Up');
+    this.preloadSounds(this.marioBrossSounds);
+  }
+
+
+  private initializeCSSounds(){
+    this.counterStrikeSounds = new Array<string>();
+    this.counterStrikeSounds.push('CS_Bomb_Has_Been_Planted');
+    this.counterStrikeSounds.push('CS_Cover_Me');
+    this.counterStrikeSounds.push('CS_Enemy_Down');
+    this.counterStrikeSounds.push('CS_Follow_Me');
+    this.counterStrikeSounds.push('CS_Go_Go_Go');
+    this.preloadSounds(this.counterStrikeSounds);
   }
 
   private initializeSecuence() {
@@ -52,12 +67,16 @@ export class SoundProvider {
     }
   }
 
-  getstarWarsSounds(){
-    return this.starWarsSounds;
+  getMarioBrossSounds(){
+    return this.marioBrossSounds;
   }
 
-  getmortalKombatSounds(){
+  getMortalKombatSounds(){
     return this.mortalKombatSounds;
+  }
+
+  getCounterStrikeSounds(){
+    return this.counterStrikeSounds;
   }
 
   playrecordedSecuence(){
