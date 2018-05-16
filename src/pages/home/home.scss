@@ -1,31 +1,97 @@
 page-home {
-    .card > .row > .col > .button.button-md.button-default.button-default-md {
-        height: 100px;
-        width: 100px;
-    }
+  .item-md {
+    // /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#aa0000+0,ffb380+100 */
+    // background: rgb(170, 0, 0);
+    // /* Old browsers */
+    // background: -moz-linear-gradient(-45deg, rgba(170, 0, 0, 1) 0%, rgba(255, 179, 128, 1) 100%);
+    // /* FF3.6-15 */
+    // background: -webkit-linear-gradient(-45deg, rgba(170, 0, 0, 1) 0%, rgba(255, 179, 128, 1) 100%);
+    // /* Chrome10-25,Safari5.1-6 */
+    // background: linear-gradient(135deg, rgba(170, 0, 0, 1) 0%, rgba(255, 179, 128, 1) 100%);
+    // /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aa0000', endColorstr='#ffb380', GradientType=1);
+    // /* IE6-9 fallback on horizontal gradient */
+    // /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ba0000+0,ffa73d+50,ff7c00+51,ff7f04+100 */
+    // background: rgb(186, 0, 0);
+    // /* Old browsers */
+    // background: -moz-linear-gradient(-45deg, rgba(186, 0, 0, 1) 0%, rgba(255, 167, 61, 1) 50%, rgba(255, 124, 0, 1) 51%, rgba(255, 127, 4, 1) 100%);
+    // /* FF3.6-15 */
+    // background: -webkit-linear-gradient(-45deg, rgba(186, 0, 0, 1) 0%, rgba(255, 167, 61, 1) 50%, rgba(255, 124, 0, 1) 51%, rgba(255, 127, 4, 1) 100%);
+    // /* Chrome10-25,Safari5.1-6 */
+    // background: linear-gradient(135deg, rgba(186, 0, 0, 1) 0%, rgba(255, 167, 61, 1) 50%, rgba(255, 124, 0, 1) 51%, rgba(255, 127, 4, 1) 100%);
+    // /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ba0000', endColorstr='#ff7f04', GradientType=1);
+    // /* IE6-9 fallback on horizontal gradient */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ba0000+0,ff7c00+31,ffa73d+34,ff7f04+100 */
+    background: rgb(186, 0, 0);
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, rgba(186, 0, 0, 1) 0%, rgba(255, 124, 0, 1) 31%, rgba(255, 167, 61, 1) 34%, rgba(255, 127, 4, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgba(186, 0, 0, 1) 0%, rgba(255, 124, 0, 1) 31%, rgba(255, 167, 61, 1) 34%, rgba(255, 127, 4, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgba(186, 0, 0, 1) 0%, rgba(255, 124, 0, 1) 31%, rgba(255, 167, 61, 1) 34%, rgba(255, 127, 4, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ba0000', endColorstr='#ff7f04', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+    padding-left: 0px; // border-bottom-width: 3px;
+    // border-bottom-color: gold;
+  }
+  .button-background{
+      background-image: url('../assets/imgs/video-games.jpg');
+      background-position: center;
+      max-height: 160px;
+        height: 160px;
+        max-width: 100%;
+        width: 360px;
+  }
+  .list-md{
+      margin-bottom: 0px;
+  }
+  .label.label-md {
+    // padding-bottom: 20px;
+    line-height: 40px;
+    font-size: xx-large;
+  }
+  img {
+    max-height: 65px; // padding-left: 20px;
+    // border-bottom-width: 3px;
+    // border-bottom-color: gold;
+  }
+  .item.item-block.item-md {
+    border-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: gold;
+  }
+  .list-md .item-block .item-inner {
+    border-bottom: none;
+  }
+  .card>.row>.col>.button.button-md.button-default.button-default-md {
+    height: 100px;
+    width: 100px;
+  }
+  .col>button>span.button-inner>img {
+    height: 100px;
+    width: 100px;
+  }
+  .card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 5px;
+    padding: 10px 0 60px 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -webkit-transition: .3s ease;
+    transition: .3s ease;
+  }
 
-    .col > button > span.button-inner > img{
-        height: 100px;
-        width: 100px;
-    }
-
-    .card {
-        position: relative;
-        background: #ffffff;
-        border-radius: 5px;
-        padding: 10px 0 60px 0;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        -webkit-transition: .3s ease;
-        transition: .3s ease;
-    }
-
-    .fab.fab-md:hover{
-        width: 70px;
-        height: 70px;
-        line-height: 70px;
-    }
-
+  .fab.fab-md{
+      margin-top: 30px;
+  }
+  .fab.fab-md:hover {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+  }
 }

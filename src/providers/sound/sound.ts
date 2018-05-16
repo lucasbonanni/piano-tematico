@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NativeAudio } from '@ionic-native/native-audio';
+import { Platform } from 'ionic-angular';
 
 /*
   Generated class for the SoundProvider provider.
@@ -14,11 +15,12 @@ export class SoundProvider {
   private mortalKombatSounds: Array<string>;
   private recordedSecuence: Array<string>;
 
-  constructor(private nativeAudio: NativeAudio) {
-    
-    this.initializeStarWarsSounds();
-    this.initializeMortalKombatSounds();
-    this.initializeSecuence();
+  constructor(private nativeAudio: NativeAudio, private platform: Platform) {
+    if(this.platform.is('mobile')){
+      this.initializeStarWarsSounds();
+      this.initializeMortalKombatSounds();
+      this.initializeSecuence();
+    }
   }
 
   private initializeMortalKombatSounds() {
