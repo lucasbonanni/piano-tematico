@@ -106,12 +106,12 @@ export class HomePage implements OnInit {
   }
 
   public playButton4Sound() {
-    const button = this.Button3.getNativeElement();
+    const button = this.Button4.getNativeElement();
     this.playSound(button.name);
   }
 
   public playButton5Sound() {
-    const button = this.Button3.getNativeElement();
+    const button = this.Button5.getNativeElement();
     this.playSound(button.name);
   }
 

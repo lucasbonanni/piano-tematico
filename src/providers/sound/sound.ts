@@ -82,9 +82,11 @@ export class SoundProvider {
   }
 
   playrecordedSecuence() {
-    for (let index = 0; index < this.recordedSecuence.length; index++) {
-      this.playSound(this.recordedSecuence[index]);
-    }
+    this.nativeAudio.play(this.recordedSecuence[0],
+      () => this.nativeAudio.play(this.recordedSecuence[1],
+        () => this.nativeAudio.play(this.recordedSecuence[2],
+          () => this.nativeAudio.play(this.recordedSecuence[3],
+            () => this.nativeAudio.play(this.recordedSecuence[4])))));
   }
 
   addToSecuence(soundName: string) {
@@ -96,7 +98,7 @@ export class SoundProvider {
   }
 
   playSound(soundName: string) {
-    this.nativeAudio.play(soundName).catch(reason => alert(reason));
+    return this.nativeAudio.play(soundName);//.catch(reason => alert(reason));
   }
 
 }
