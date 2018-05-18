@@ -8,6 +8,11 @@ import { MyApp } from './app.component';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { SoundProvider } from '../providers/sound/sound';
 import { NativeAudio } from '@ionic-native/native-audio';
+import { BusyLoaderProvider } from '../providers/busy-loader/busy-loader';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { firebaseConfig } from '../enviroments/enviroment';
 
 @NgModule({
   declarations: [
@@ -15,7 +20,9 @@ import { NativeAudio } from '@ionic-native/native-audio';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -27,7 +34,8 @@ import { NativeAudio } from '@ionic-native/native-audio';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NativeAudio,
     AuthServiceProvider,
-    SoundProvider
+    SoundProvider,
+    BusyLoaderProvider
   ]
 })
 export class AppModule {}
