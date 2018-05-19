@@ -35,7 +35,7 @@ import { firebaseConfig } from '../enviroments/enviroment';
     NativeAudio,
     AuthServiceProvider,
     SoundProvider,
-    BusyLoaderProvider
+    BusyLoaderProvider,
   ]
 })
 export class AppModule {}
