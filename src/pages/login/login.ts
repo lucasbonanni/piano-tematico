@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { BusyLoaderProvider } from '../../providers/busy-loader/busy-loader';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the LoginPage page.
@@ -21,44 +23,45 @@ export class LoginPage {
   loading: Loading;
   createSuccess = false;
   registerCredentials = { email: '', password: '', password2: '' };
-  
+
   constructor(
-    private nav: NavController, 
-    private auth: AuthServiceProvider, 
-    private alertCtrl: AlertController, 
-    private loadingCtrl: LoadingController) {
+    private nav: NavController,
+    private auth: AuthServiceProvider,
+    private alertCtrl: AlertController,
+    private busyLoader: BusyLoaderProvider) {
     this.showRegister = false;
   }
+
 
   public createAccount() {
     this.nav.push('RegisterPage');
   }
 
   public login() {
-    this.showLoading()
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if (allowed) {        
-        this.nav.setRoot('HomePage');
-      } else {
-        this.showError("No tiene acceso");
-      }
-    },
-      error => {
-        this.showError(error);
-      });
+    this.busyLoader.showBusyLoader();
+    this.auth.signInWithEmail(this.registerCredentials).then(allowed => {
+      console.log(allowed);
+      this.busyLoader.dismissBusyLoader();
+      this.nav.setRoot('HomePage');
+    }).catch(error => {
+      alert(error);
+      this.busyLoader.dismissBusyLoader();
+    });
   }
 
   showLoading() {
-    this.loading = this.loadingCtrl.create({
-      content: 'Por favor espere...',
-      dismissOnPageChange: true
-    });
-    this.loading.present();
+    // this.loading = this.loadingCtrl.create({ ------------------------------
+    //   content: 'Por favor espere...',
+    //   dismissOnPageChange: true
+    // });
+    // this.loading.present();
   }
 
+
+
   showError(text) {
-    this.loading.dismiss();
- 
+    // this.loading.dismiss();      --------------------------------
+
     let alert = this.alertCtrl.create({
       title: 'Falló',
       subTitle: text,
@@ -69,17 +72,11 @@ export class LoginPage {
 
 
   public register() {
-    this.auth.register(this.registerCredentials).subscribe(success => {
-      if (success) {
-        this.createSuccess = true;
-        this.showPopup("Success", "Account created.");
-      } else {
-        this.showPopup("Error", "Problem creating account.");
-      }
-    },
-      error => {
-        this.showPopup("Error", error);
-      });
+    this.auth.signUp(this.registerCredentials).then(() => {
+      this.nav.setRoot(HomePage);
+    }).catch(error => {
+      alert(error);
+    });
   }
 
   showPopup(title, text) {
@@ -100,11 +97,11 @@ export class LoginPage {
     alert.present();
   }
 
-  showRegistration(){
+  showRegistration() {
     this.showRegister = true;
   }
 
-  hideRegistration(){
+  hideRegistration() {
     this.showRegister = false;
   }
 }

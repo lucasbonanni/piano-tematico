@@ -1,6 +1,10 @@
-import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { NavController, IonicPage, Button } from 'ionic-angular';
+import { Component, ElementRef, ViewChild, OnInit, SecurityContext } from '@angular/core';
+import { NavController, IonicPage, Button, LoadingController, Loading } from 'ionic-angular';
 import { SoundProvider } from '../../providers/sound/sound';
+import { spinner } from '../../app/spinner';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { BusyLoaderProvider } from '../../providers/busy-loader/busy-loader';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 @IonicPage()
 @Component({
@@ -9,6 +13,7 @@ import { SoundProvider } from '../../providers/sound/sound';
 })
 export class HomePage implements OnInit {
 
+  
   private isRecording: boolean = false;
   private soundsNames: Array<string> = [];
 
@@ -30,13 +35,24 @@ export class HomePage implements OnInit {
   private buttonText4: string = '';
   private buttonText5: string = '';
 
-  constructor(public navCtrl: NavController, private soundSrv: SoundProvider) {    
+  constructor(
+    public navCtrl: NavController, 
+    private soundSrv: SoundProvider,
+    private auth: AuthServiceProvider, 
+    private busyLoader:BusyLoaderProvider) {    
+
   }
 
   ngOnInit(): void {
       this.soundsNames = this.soundSrv.getCounterStrikeSounds();
       this.InitializeButtons();
   }
+  ionViewDidLoad() {
+    // if(this.busyLoader.loading !== null){
+    //   this.busyLoader.dismissBusyLoader();
+    // }
+  }
+
 
   InitializeButtons(): any {
     this.InitializeButton1(this.soundsNames[0]);
@@ -145,4 +161,14 @@ export class HomePage implements OnInit {
   public playRecording(){
     this.soundSrv.playrecordedSecuence();
   }
+
+  /**
+   * logOut
+   */
+  public logout() {
+    this.auth.signOut().then(() => {
+      this.navCtrl.setRoot('LoginPage')
+    });
+  }
+
 }
