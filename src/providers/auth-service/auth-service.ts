@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import { User, AuthProvider } from '@firebase/auth-types';
-
+import {  AuthProvider } from '@firebase/auth-types';
 /*
   Generated class for the AuthServiceProvider provider.
 
@@ -13,7 +12,7 @@ import { User, AuthProvider } from '@firebase/auth-types';
 @Injectable()
 export class AuthServiceProvider {
 
-  user: User;
+  user: firebase.User;
   access: boolean;
   constructor(public afAuth: AngularFireAuth) {
     afAuth.authState.subscribe(user => {
@@ -70,7 +69,7 @@ private oauthSignIn(provider: AuthProvider) {
 	}
 }
   
-  public getUserInfo(): User {
+  public getUserInfo(): firebase.User {
     return this.user;
   }
 
