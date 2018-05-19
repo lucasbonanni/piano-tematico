@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, Loading } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { BusyLoaderProvider } from '../../providers/busy-loader/busy-loader';
 import { HomePage } from '../home/home';
