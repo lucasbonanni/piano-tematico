@@ -3,19 +3,21 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { BusyLoaderProvider } from '../providers/busy-loader/busy-loader';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   splash: boolean = true;
-  rootPage:any = 'LoginPage';
+  rootPage: any = 'LoginPage';
 
   constructor(
-    platform: Platform, 
-    statusBar: StatusBar, 
+    platform: Platform,
+    statusBar: StatusBar,
     splashScreen: SplashScreen,
-    private busyLoader:BusyLoaderProvider) {
+    private auth: AuthServiceProvider,
+    private busyLoader: BusyLoaderProvider) {
     this.busyLoader.showBusyLoader();
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -27,6 +29,19 @@ export class MyApp {
         this.busyLoader.dismissBusyLoader();
       }, 3000);
     });
+    this.auth.afAuth.authState
+      .subscribe(
+        user => {
+          if (user) {
+            this.rootPage = 'HomePage';
+          } else {
+            this.rootPage = 'LoginPage';
+          }
+        },
+        () => {
+          this.rootPage = 'LoginPage';
+        }
+      );
   }
 }
 
