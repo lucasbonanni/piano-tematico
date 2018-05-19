@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, Loading } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, Loading, ToastController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { BusyLoaderProvider } from '../../providers/busy-loader/busy-loader';
 import { HomePage } from '../home/home';
@@ -27,7 +27,7 @@ export class LoginPage {
   constructor(
     private nav: NavController,
     private auth: AuthServiceProvider,
-    private alertCtrl: AlertController,
+    private toastCtrl: ToastController,
     private busyLoader: BusyLoaderProvider) {
     this.showRegister = false;
   }
@@ -44,30 +44,9 @@ export class LoginPage {
       this.busyLoader.dismissBusyLoader();
       this.nav.setRoot('HomePage');
     }).catch(error => {
-      alert(error);
+      this.showMessage(error);
       this.busyLoader.dismissBusyLoader();
     });
-  }
-
-  showLoading() {
-    // this.loading = this.loadingCtrl.create({ ------------------------------
-    //   content: 'Por favor espere...',
-    //   dismissOnPageChange: true
-    // });
-    // this.loading.present();
-  }
-
-
-
-  showError(text) {
-    // this.loading.dismiss();      --------------------------------
-
-    let alert = this.alertCtrl.create({
-      title: 'Falló',
-      subTitle: text,
-      buttons: ['OK']
-    });
-    alert.present();
   }
 
 
@@ -75,27 +54,10 @@ export class LoginPage {
     this.auth.signUp(this.registerCredentials).then(() => {
       this.nav.setRoot(HomePage);
     }).catch(error => {
-      alert(error);
+      this.showMessage(error);
     });
   }
 
-  showPopup(title, text) {
-    let alert = this.alertCtrl.create({
-      title: title,
-      subTitle: text,
-      buttons: [
-        {
-          text: 'OK',
-          handler: data => {
-            if (this.createSuccess) {
-              this.nav.popToRoot();
-            }
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
 
   showRegistration() {
     this.showRegister = true;
@@ -103,5 +65,14 @@ export class LoginPage {
 
   hideRegistration() {
     this.showRegister = false;
+  }
+
+  showMessage(text:string) {
+    let toast = this.toastCtrl.create({
+      message: text,
+      duration: 3000,
+      position: 'top'
+    });
+    toast.present();
   }
 }
