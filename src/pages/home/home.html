@@ -1,5 +1,5 @@
-<ion-content>
-  <ion-list>
+<ion-content align-self-stretch>
+  <ion-list align-self-stretch>
     <button ion-item #Button1 (click)="playButton1Sound()">
       <img item-start src="assets/imgs/buttons/CS3.png" #imageButton1> {{buttonText1}}
     </button>
@@ -16,7 +16,8 @@
       <img item-start src="assets/imgs/buttons/CS3.png" #imageButton5> {{buttonText5}}
     </button>
   </ion-list>
-  <div class="button-background">
+
+  <!-- <div class="button-background">
     <ion-row>
       <ion-col col-12>
       </ion-col>
@@ -37,12 +38,18 @@
         </ion-fab>
       </ion-col>
     </ion-row>
-  </div>
+  </div> -->
   <ion-fab right bottom>
     <button ion-fab color="danger">
       <ion-icon name="logo-buffer"></ion-icon>
     </button>
     <ion-fab-list side="top">
+      <button ion-fab color="danger" (click)="startRecording()">
+        <ion-icon name="recording"></ion-icon>
+      </button>
+      <button ion-fab color="primary" (click)="playRecording()">
+        <ion-icon name="play"></ion-icon>
+      </button>
       <button ion-fab (click)="logout()">
         <ion-icon name="exit"></ion-icon>
       </button>
